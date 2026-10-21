@@ -1,9 +1,17 @@
-export interface NavItem {
-  label: string;
-  href: string;
-}
+export const COMPANY_INFO = {
+  name: "Tech Module",
+  tagline: "Digital solutions for smart businesses",
+  phone: "+91 62391 25526",
+  whatsapp: "916239125526",
+  email: "contact@techmodule.in",
+  address: "Punjab, India",
+  socials: [
+    { label: "Twitter", href: "https://twitter.com" },
+    { label: "LinkedIn", href: "https://linkedin.com" },
+  ],
+};
 
-export const NAV_LINKS: NavItem[] = [
+export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
@@ -12,17 +20,3 @@ export const NAV_LINKS: NavItem[] = [
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
-
-export const COMPANY_INFO = {
-  name: "TECH MODULE",
-  tagline: "Digital solutions for smart businesses",
-  address: "Office address, City, State, India",
-  email: "hello@techmodule.example",
-  phone: "+919876543210",
-  whatsapp: "+919876543210",
-  socials: [
-    { label: "LinkedIn", href: "https://linkedin.com" },
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Facebook", href: "https://facebook.com" },
-  ],
-};
