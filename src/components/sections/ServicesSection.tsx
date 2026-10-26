@@ -8,6 +8,7 @@ import {
   ShoppingCart,
   Zap,
   ShieldCheck,
+  TrendingUp,
   ArrowUpRight,
   Clock,
   Compass,
@@ -43,6 +44,15 @@ const SERVICES: ServiceData[] = [
       "React, Next.js, or plain HTML and CSS, whichever fits. Accessible, fast, and easy for your team to edit.",
     duration: "2–4 weeks",
     icon: Code2,
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital marketing",
+    shortDesc: "Targeted campaigns, SEO, and paid ad funnels that generate qualified leads.",
+    fullDesc:
+      "Search visibility, Google & Meta ad funnels, and conversion tracking configured to drive measurable inbound inquiries.",
+    duration: "Ongoing / Sprint",
+    icon: TrendingUp,
   },
   {
     id: "ecommerce",
@@ -115,7 +125,7 @@ export default function ServicesSection() {
             What we do for you
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-            Four services, one accountable team. Pick one or combine them.
+            Tailored capabilities, one accountable team. Pick one or combine them.
           </p>
         </div>
 

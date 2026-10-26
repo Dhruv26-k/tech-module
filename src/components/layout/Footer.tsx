@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Send, Heart } from "lucide-react";
+import { Send } from "lucide-react";
 import { NAV_LINKS, COMPANY_INFO } from "@/data/navigation";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 dark:border-sky-500/10 bg-slate-50 dark:bg-[#060a12] text-slate-600 dark:text-slate-400 text-sm transition-colors">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      {/* pb-24 ensures floating WhatsApp & Ask us buttons don't block bottom content */}
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-24 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand Isometric Logo & Details */}
           <div className="space-y-3">
@@ -95,7 +96,9 @@ export default function Footer() {
         {/* Bottom Credits Bar */}
         <div className="mt-12 border-t border-slate-200 dark:border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <p>© 2026 {COMPANY_INFO.name}. All rights reserved.</p>
-          <p className="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-400">
+
+          {/* sm:mr-52 shifts the text inward away from the fixed floating buttons */}
+          <p className="flex items-center gap-1 font-medium text-slate-600 dark:text-slate-400 sm:mr-52">
             <span>Made with precision by</span>
             <span className="font-bold text-blue-600 dark:text-sky-400">Dhruv</span>
           </p>

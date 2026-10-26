@@ -1,7 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, MessageCircle, ArrowRight, Layout, Code2, Zap, ShieldCheck, Star } from "lucide-react";
+import {
+  Phone,
+  MessageCircle,
+  ArrowRight,
+  Layout,
+  Code2,
+  Zap,
+  ShieldCheck,
+  TrendingUp,
+  Star,
+} from "lucide-react";
 import { COMPANY_INFO } from "@/data/navigation";
 import { buildWhatsAppUrl } from "@/lib/utils";
 
@@ -25,6 +35,11 @@ const FEATURE_CARDS = [
     icon: ShieldCheck,
     color: "bg-amber-600/20 text-amber-400 border-amber-500/30",
     label: "Maintenance & Care",
+  },
+  {
+    icon: TrendingUp,
+    color: "bg-rose-600/20 text-rose-400 border-rose-500/30",
+    label: "Digital Marketing",
   },
 ];
 
@@ -103,8 +118,8 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* 4 Feature Service Cards */}
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+        {/* 5 Feature Service Cards */}
+        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
           {FEATURE_CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (
