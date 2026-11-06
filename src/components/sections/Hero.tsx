@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { motion, type Variants } from "motion/react";
 import {
   Phone,
   MessageCircle,
@@ -43,6 +44,31 @@ const FEATURE_CARDS = [
   },
 ];
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 18, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+    },
+  },
+};
+
 export default function Hero() {
   const whatsappUrl = buildWhatsAppUrl(
     COMPANY_INFO.whatsapp,
@@ -50,13 +76,18 @@ export default function Hero() {
   );
 
   return (
-    <section className="relative overflow-hidden pt-12 pb-24 text-center">
+    <section className="relative overflow-hidden pt-8 sm:pt-10 pb-16 sm:pb-20 text-center">
       {/* Background Radial Glow */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[650px] bg-[radial-gradient(ellipse_75%_55%_at_50%_-10%,rgba(14,165,233,0.2),transparent_75%)]" />
 
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Top Proof Pill: 15+ Projects & 4.9 Rating */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-slate-300 dark:border-sky-500/20 bg-slate-100/90 dark:bg-slate-900/70 px-5 py-2 text-xs backdrop-blur-md shadow-sm">
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="inline-flex flex-wrap items-center justify-center gap-3 rounded-full border border-slate-300 dark:border-sky-500/20 bg-slate-100/90 dark:bg-slate-900/70 px-5 py-2 text-xs backdrop-blur-md shadow-sm"
+        >
           <span className="font-semibold text-slate-800 dark:text-slate-200">
             15+ projects delivered
           </span>
@@ -69,17 +100,27 @@ export default function Hero() {
               4.9 client rating
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Hero Title */}
-        <h1 className="mt-8 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="mt-6 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]"
+        >
           Website Design <br />
           <span className="text-blue-600 dark:text-sky-400">Development</span> & Automation <br />
           For Growing Businesses
-        </h1>
+        </motion.h1>
 
         {/* Subtitle with Starting Price Pill */}
-        <p className="mt-6 text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        <motion.p
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="mt-5 text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed"
+        >
           Fast websites and smart automations that bring in leads and save you hours every week.{" "}
           <span className="inline-block mt-1 sm:mt-0 font-medium text-slate-800 dark:text-slate-200">
             Get yours starting at{" "}
@@ -87,47 +128,66 @@ export default function Hero() {
               ₹4,999
             </span>
           </span>
-        </p>
+        </motion.p>
 
-        {/* 3 CTA Buttons */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a
+        {/* 3 CTA Buttons with Spring Hover & Tap Physics */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.24 }}
+          className="mt-7 flex flex-wrap items-center justify-center gap-3"
+        >
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
             href={`tel:${COMPANY_INFO.phone}`}
-            className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/80 px-5 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 shadow-md hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all"
+            className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/80 px-5 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 shadow-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
           >
             <Phone className="h-4 w-4 text-blue-500" />
             <span>Call Us</span>
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#22c55e]/25 hover:bg-[#16a34a] active:scale-95 transition-all"
+            className="flex items-center gap-2 rounded-xl bg-[#22c55e] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#22c55e]/25 hover:bg-[#16a34a] transition-colors"
           >
             <MessageCircle className="h-4 w-4 fill-white" />
             <span>WhatsApp Us</span>
-          </a>
+          </motion.a>
 
-          <Link
-            href="/pricing"
-            className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/80 px-5 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 shadow-md hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all"
-          >
-            <span>View Pricing</span>
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/pricing"
+              className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/80 px-5 py-3 text-sm font-semibold text-slate-800 dark:text-slate-200 shadow-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+              <span>View Pricing</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+        </motion.div>
 
-        {/* 5 Feature Service Cards: Balanced 2-column mobile layout + 5-column tablet/desktop */}
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
+        {/* 5 Feature Service Cards: Staggered Entrance + Hover Feedback */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-30px" }}
+          className="mt-10 grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-3.5 max-w-4xl mx-auto"
+        >
           {FEATURE_CARDS.map((card, idx) => {
             const Icon = card.icon;
             const isLast = idx === FEATURE_CARDS.length - 1;
 
             return (
-              <div
+              <motion.div
                 key={idx}
-                className={`group flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 dark:border-sky-500/15 bg-white/60 dark:bg-slate-900/60 p-4 backdrop-blur-md shadow-sm hover:scale-105 hover:border-sky-500/40 transition-all cursor-default ${
+                variants={cardVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`group flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 dark:border-sky-500/15 bg-white/60 dark:bg-slate-900/60 p-4 backdrop-blur-md shadow-sm hover:border-sky-500/40 transition-colors cursor-default ${
                   isLast
                     ? "col-span-2 md:col-span-1 flex-row md:flex-col"
                     : "flex-col"
@@ -141,10 +201,10 @@ export default function Hero() {
                 <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 text-center">
                   {card.label}
                 </span>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
