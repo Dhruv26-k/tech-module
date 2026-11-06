@@ -118,21 +118,27 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* 5 Feature Service Cards */}
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
+        {/* 5 Feature Service Cards: Balanced 2-column mobile layout + 5-column tablet/desktop */}
+        <div className="mt-14 grid grid-cols-2 md:grid-cols-5 gap-3.5 sm:gap-4 max-w-4xl mx-auto">
           {FEATURE_CARDS.map((card, idx) => {
             const Icon = card.icon;
+            const isLast = idx === FEATURE_CARDS.length - 1;
+
             return (
               <div
                 key={idx}
-                className="group flex flex-col items-center justify-center gap-2.5 rounded-2xl border border-slate-200 dark:border-sky-500/15 bg-white/60 dark:bg-slate-900/60 p-4 backdrop-blur-md shadow-sm hover:scale-105 hover:border-sky-500/40 transition-all cursor-default"
+                className={`group flex items-center justify-center gap-2.5 rounded-2xl border border-slate-200 dark:border-sky-500/15 bg-white/60 dark:bg-slate-900/60 p-4 backdrop-blur-md shadow-sm hover:scale-105 hover:border-sky-500/40 transition-all cursor-default ${
+                  isLast
+                    ? "col-span-2 md:col-span-1 flex-row md:flex-col"
+                    : "flex-col"
+                }`}
               >
                 <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl border ${card.color} shadow-inner transition-transform group-hover:scale-110`}
+                  className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border ${card.color} shadow-inner transition-transform group-hover:scale-110`}
                 >
                   <Icon className="h-6 w-6" />
                 </div>
-                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 text-center">
                   {card.label}
                 </span>
               </div>
