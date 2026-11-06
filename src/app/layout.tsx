@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.className} min-h-screen bg-slate-50 dark:bg-[#070b14] text-slate-900 dark:text-slate-100 flex flex-col antialiased transition-colors duration-200`}
+        className={`${inter.className} min-h-screen bg-[#e2effc] dark:bg-[#070b14] text-slate-900 dark:text-slate-100 flex flex-col antialiased transition-colors duration-300 selection:bg-blue-500 selection:text-white`}
       >
         <ThemeAnimationProvider>
           {/* Interactive mouse-reactive particle background */}
