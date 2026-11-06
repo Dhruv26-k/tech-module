@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description:
     "Fast, conversion-focused websites, automation, and ongoing care for growing businesses. Made by Dhruv.",
   metadataBase: new URL("https://techmodule.in"),
+  verification: {
+    google: "hT3bWeU5JqhpJopPeolh5xSTxONSOVMBOe80Nr5IbaI",
+  },
   openGraph: {
     title: "Tech Module | Digital Solutions for Smart Businesses",
     description:
