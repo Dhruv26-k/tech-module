@@ -19,47 +19,50 @@ export default function Logo({
       className={`group inline-flex items-center gap-2.5 sm:gap-3 select-none transition-transform active:scale-95 ${className}`}
       aria-label="Tech Module Home"
     >
-      {/* 3D Isometric TM Mark (Transparent SVG) */}
-      <div className="relative h-9 w-9 sm:h-10 sm:w-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+      {/* 3D Isometric TM Cube Mark (Guaranteed Mobile Rendering) */}
+      <div className="relative h-9 w-9 sm:h-10 sm:w-10 min-w-[36px] min-h-[36px] shrink-0">
         <svg
           viewBox="0 0 200 200"
+          width="36"
+          height="36"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-full drop-shadow-[0_4px_12px_rgba(0,102,255,0.25)]"
+          className="h-full w-full drop-shadow-[0_4px_12px_rgba(0,102,255,0.4)]"
         >
-          <defs>
-            <linearGradient id="tm-roof" x1="34" y1="24" x2="166" y2="72" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#0066FF" />
-              <stop offset="1" stopColor="#0047BA" />
-            </linearGradient>
-
-            <linearGradient id="tm-left-t" x1="28" y1="80" x2="98" y2="178" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#0055FF" />
-              <stop offset="1" stopColor="#003ACC" />
-            </linearGradient>
-
-            <linearGradient id="tm-right-m" x1="102" y1="96" x2="168" y2="178" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#334155" />
-              <stop offset="1" stopColor="#0F172A" />
-            </linearGradient>
-          </defs>
-
-          {/* Isometric Roof */}
+          {/* Top Isometric Roof: Bright Electric Blue */}
           <path
             d="M 100 24 L 166 60 L 145 72 L 100 48 L 55 72 L 34 60 Z"
-            fill="url(#tm-roof)"
+            fill="#38BDF8"
           />
 
-          {/* Letter 'T' */}
+          {/* Left Block: Letter 'T' in Vivid Royal Blue */}
           <path
             d="M 28 80 L 86 80 L 86 98 L 68 98 L 68 140 L 98 158 L 98 178 L 48 148 L 48 98 L 28 98 Z"
-            fill="url(#tm-left-t)"
+            fill="#0066FF"
           />
 
-          {/* Letter 'M' */}
+          {/* Left Block Inner Highlight Facet */}
+          <path
+            d="M 48 98 L 68 98 L 68 140 L 48 128 Z"
+            fill="#2563EB"
+          />
+
+          {/* Right Block: Letter 'M' Outer Shape (High-Contrast Slate Navy) */}
           <path
             d="M 102 96 L 126 122 L 150 96 L 168 96 L 168 150 L 150 162 L 150 126 L 126 150 L 102 126 L 102 178 L 102 96 Z"
-            fill="url(#tm-right-m)"
+            fill="#475569"
+          />
+
+          {/* Letter 'M' Center Shading Facet */}
+          <path
+            d="M 126 122 L 150 96 L 150 126 L 126 150 Z"
+            fill="#64748B"
+          />
+
+          {/* Bottom Isometric Shadow Anchor */}
+          <path
+            d="M 98 178 L 102 178 L 102 186 L 98 186 Z"
+            fill="#0066FF"
           />
         </svg>
       </div>
